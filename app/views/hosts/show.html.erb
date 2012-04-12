@@ -1,0 +1,44 @@
+<h2><%= @host.hostname %></h2>
+
+<table class="table">
+  <col class="span2" />
+  <col class="span2" />
+  <col class="span2" />
+  <col class="span3" />
+  <col class="span3" />
+  <thead>
+    <tr>
+      <th>時刻</th>
+      <th>種別</th>
+      <th>実行時間</th>
+      <th>セッションID</th>
+      <th>リクエストID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @logs.each do |log| %>
+    <tr style="background-color: #eee; border-top: solid 2px black">
+      <td><%= log.date.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      <td><%= log.type %></td>
+      <td><%= log.elapsedTime %> ms</td>
+      <td><%= log[:sessionId] %></td>
+      <td><%= log[:requestId] %></td>
+    </tr>
+    <% if log[:accessInfo] %>
+    <tr>
+      <td colspan="5" style="word-break: break-all"><%= log[:accessInfo] %></td>
+    </tr>
+    <% end %>
+    <% if log[:method] %>
+    <tr>
+      <td colspan="5" style="word-break: break-all"><%= log[:method] %></td>
+    </tr>
+    <% end %>
+    <% if log[:sql] then %>
+    <tr>
+      <td colspan="5" style="word-break: break-all"><%= log[:sql] %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

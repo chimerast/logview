@@ -1,0 +1,13 @@
+<h2>ホスト一覧</h2>
+
+<table class="table table-striped span6">
+  <tbody>
+    <% @hosts.each do |host| %>
+    <tr>
+      <td><%= link_to "表示", host %></td>
+      <td><%= host.hostname %></td>
+      <td><%= host.service %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
