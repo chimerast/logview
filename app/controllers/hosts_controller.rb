@@ -9,6 +9,6 @@ class HostsController < ApplicationController
     @logs = Log
       .where(hostname: @host.hostname,  service: @host.service)
       .order_by([[:$natural, :desc]])
-      .limit(50)
+      .page params[:page]
   end
 end

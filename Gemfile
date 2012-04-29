@@ -42,3 +42,6 @@ gem 'bson_ext'
 
 # Twitter Bootstrap
 gem 'twitter-bootstrap-rails'
+
+# Kaminari
+gem 'kaminari'

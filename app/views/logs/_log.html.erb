@@ -1,0 +1,22 @@
+    <tr style="background-color: #eee; border-top: solid 2px black">
+      <td><%= log.date.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      <td><%= log.type %></td>
+      <td><%= log.elapsedTime %> ms</td>
+      <td><%= log[:sessionId] %></td>
+      <td><%= log[:requestId] %></td>
+    </tr>
+    <% if log[:accessInfo] %>
+    <tr>
+      <td colspan="5" style="word-break: break-all"><%= log[:accessInfo] %></td>
+    </tr>
+    <% end %>
+    <% if log[:method] %>
+    <tr>
+      <td colspan="5" style="word-break: break-all"><%= log[:method] %></td>
+    </tr>
+    <% end %>
+    <% if log[:sql] then %>
+    <tr>
+      <td colspan="5" style="word-break: break-all"><%= log[:sql] %></td>
+    </tr>
+    <% end %>

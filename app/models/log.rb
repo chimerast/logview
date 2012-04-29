@@ -5,4 +5,5 @@ class Log
   field :date, :type => DateTime
   field :type, :type => String
   field :elapsedTime, :type => Integer
+  paginates_per 50
 end
